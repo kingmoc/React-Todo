@@ -2,13 +2,31 @@ import React from 'react';
 import './Todo.scss';
 
 const Todo = (props) => {
-	console.log(props)
-	console.log(props.todo)
+	// console.log(props)
 
+	let todo = props.todoSearch.length ? props.todoSearch : props.todo;
 
 	return (
-		props.todo.map(task => {
-			return <li key={task.id}>{task.task}</li>
+		
+
+		todo.map(task => {
+			// console.log(task.completed)
+
+			let className = '';
+
+			(task.completed) ? className = "strike" : className = "";
+
+
+			return ( 
+				<li 
+				onClick={props.toggle} 
+				key={task.id}
+				id={task.id}
+				className={className}
+				>
+				{task.task}
+				</li>
+			)
 		})
 
 	)

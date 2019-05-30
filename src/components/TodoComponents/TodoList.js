@@ -14,13 +14,19 @@ const TodoList = (props) => {
 		<div>
 
 			<ul>
-			<Todo todo={props.todoList}/>
+				<Todo 
+					todoSearch={props.todoSearch} 
+					todo={props.todoList} 
+					toggle={props.toggle}
+					className={props.className}
+				/>
 			</ul>
 
 			<TodoForm 
 			input={props.input} 
 			addToDo={props.addToDo} 
 			handleChanges={props.handleChanges}
+			remove = {props.remove}
 			/>
 		
 		</div>
